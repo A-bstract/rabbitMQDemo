@@ -16,17 +16,14 @@ import java.util.Map;
 @Component
 public class Consumer1 {
 
-   /* @RabbitListener(queues = Constans.QUEUE_LOG_OPER,containerFactory = "LISTENER_OPER_LOG")
-    public void operLogConsumer(Message message, @Headers Map<String, Object> headers,
+    /*@RabbitListener(queues = Constans.QUEUE_LOG_OPER,containerFactory = "LISTENER_OPER_LOG")
+    public void operLogConsumer(Message message,
                                 Channel channel) throws IOException, InterruptedException {
-        channel.basicQos(1);
-        Thread.sleep(2000);
-        // ACK
-        Long deliveryTag = (Long) headers.get(AmqpHeaders.DELIVERY_TAG);
-        channel.basicAck(deliveryTag, false);
-
-        //channel.txRollback();
-        log.info("1号消费者：" + new String(message.getBody()));
+        log.info("============开始==========");
+        channel.basicQos(5);
+        Thread.sleep(13000);
+        // ACK 消息确认
+        channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
     }*/
 
 }

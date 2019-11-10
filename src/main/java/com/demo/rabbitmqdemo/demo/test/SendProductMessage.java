@@ -22,8 +22,8 @@ public class SendProductMessage {
         rabbitTemplate.setRoutingKey(Constans.LOG_BIND_KEY);
         String message = "Hellow Word!";
         MessageBuilder messageBuilder = MessageBuilder.withBody(message.getBytes());
-        ExecutorService executorService = Executors.newFixedThreadPool(100);
-        for (int i = 0; i < 10000; i++) {
+        ExecutorService executorService = Executors.newFixedThreadPool(5);
+        for (int i = 0; i < 5; i++) {
             executorService.submit(() -> {
                 rabbitTemplate.convertAndSend(messageBuilder.build());
             });

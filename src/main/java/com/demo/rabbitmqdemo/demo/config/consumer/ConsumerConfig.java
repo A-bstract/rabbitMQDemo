@@ -16,10 +16,10 @@ public class ConsumerConfig {
         //消息的统一过滤器
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
-        factory.setConcurrentConsumers(3);//并发 消费者数量
-        factory.setMaxConcurrentConsumers(10);//允许单个消费者 最大的消费数量
-        factory.setReceiveTimeout(10000L);//10秒
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);//设置手动提交
+        factory.setConcurrentConsumers(1);//一个客户端 初始 起多少个channel
+        factory.setMaxConcurrentConsumers(1);//一个客户端 最多 起多少个channel
+        factory.setReceiveTimeout(100000L);//10秒
         return  factory;
     }
 }
