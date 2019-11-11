@@ -23,7 +23,7 @@ public class ConsumerDemo {
         Connection connection = connectionFactory.newConnection();
 
         Channel channel = connection.createChannel();
-        channel.queueDeclare(Constans.QUEUE_LOG_OPER,true,false,false,null);
+        //channel.queueDeclare(Constans.QUEUE_LOG_OPER,true,false,false,null);
 
         channel.basicQos(0, 2, false);
 

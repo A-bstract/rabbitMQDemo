@@ -16,6 +16,7 @@ public class ConsumerConfig {
         //消息的统一过滤器
         SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
         factory.setConnectionFactory(connectionFactory);
+        factory.setPrefetchCount(5);
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);//设置手动提交
         factory.setConcurrentConsumers(1);//一个客户端 初始 起多少个channel
         factory.setMaxConcurrentConsumers(1);//一个客户端 最多 起多少个channel
